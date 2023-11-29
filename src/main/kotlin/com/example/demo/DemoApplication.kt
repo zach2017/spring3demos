@@ -1,4 +1,4 @@
-package com.baeldung.security.kotlin.dsl
+package com.demo.zac
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController
 
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
-
+import com.example.demo.Library
 
 @EnableWebSecurity
 @SpringBootApplication
@@ -103,5 +103,9 @@ fun main(args: Array<String>) {
     @RestController
     class GreetingController {
     @GetMapping("/hello/{name}")
-    fun get(@PathVariable name: String) = "Hello, $name"
+    fun get(@PathVariable name: String) : String {
+       val myclass = Library("more dd")
+      val foo = myclass.getName()
+    return "Hello, $foo"
+    }
 }
